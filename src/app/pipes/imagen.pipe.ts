@@ -7,7 +7,8 @@ import { URL_SERVICIOS } from '../config/config';
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
-
+    
+    // console.log('tipo', tipo);
     let url = URL_SERVICIOS + '/img';
 
     

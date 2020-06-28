@@ -109,7 +109,7 @@ export class UsuarioService {
         .then((resp: any) => {
           console.log(resp);
           this.usuario.img = resp.usuario.img;
-          Swal.fire('Imagen actualizado', this.usuario.nombre, 'success');
+          Swal.fire('Imagen actualizada', this.usuario.nombre, 'success');
 
           this.guardarStorage(id, this.token, this.usuario);
         })
