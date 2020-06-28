@@ -16,37 +16,37 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 // Guards
 import { LoginGuardGuard } from '../services/service.index';
 import { AdminGuard } from '../services/service.index';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 
 
 const pagesRoutes: Routes = [
-    {
-        path: '',
-        component: PagesComponent,
-        canActivate: [ LoginGuardGuard ],
-        children: [
-            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dasboard'} },
-            { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'} },
-            { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas'} },
-            { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'} },
-            { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJS'} },
-            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del tema'} },
-            { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario'} },
-            { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador'} },
-
-            // Mantenimientos
-            { 
-                path: 'usuarios',
-                component: UsuariosComponent,
-                canActivate: [AdminGuard],
-                data: { titulo: 'Mantenimiento de Usuarios'} },
-
-            { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales'} },
-            { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos'} },
-            { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Actualizar Medico'} },
-            { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
-        ]
+    // Ejemplo de implementar la renovacion del token
+    { 
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: { titulo: 'Dasboard'} 
     },
+    { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'} },
+    { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas'} },
+    { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'} },
+    { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJS'} },
+    { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del tema'} },
+    { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario'} },
+    { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador'} },
+
+    // Mantenimientos
+    { 
+        path: 'usuarios',
+        component: UsuariosComponent,
+        canActivate: [AdminGuard],
+        data: { titulo: 'Mantenimiento de Usuarios'} },
+
+    { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales'} },
+    { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos'} },
+    { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Actualizar Medico'} },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+        
 ];
 
 
